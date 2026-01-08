@@ -1,0 +1,276 @@
+@import "./futuristic.css";
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono NFM ExtraBold";
+  font-weight: normal;
+  font-size: 16px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgba(21, 18, 27, 0);
+  color: @text;
+}
+
+tooltip {
+  background: @overlay;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: @highlight;
+  box-shadow: 2px 3px @surface;
+}
+
+#workspaces button {
+  padding: 5px;
+  color: @highlightMed;
+  margin-right: 5px;
+}
+
+#taskbar button {
+  padding: 5px;
+  color: @highlightMed;
+  margin-right: 5px;
+}
+
+#workspaces button.active {
+  color: @text;
+}
+
+#taskbar button.active {
+  color: @text;
+}
+
+#taskbar button:hover {
+  background: @highlightLow;
+  color: @text;
+  border-radius: 8px;
+}
+
+#workspaces button.focused {
+  color: @subtle;
+  background: @highlight;
+  border-radius: 8px;
+}
+
+#workspaces button.urgent {
+  color: @base;
+  background: @lightblue;
+  border-radius: 8px;
+}
+
+#workspaces button:hover {
+  background: @highlightLow;
+  color: @text;
+  border-radius: 8px;
+}
+
+menu {
+  border-radius: 8px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: @highlight;
+  background: @base;
+  color: @text;
+}
+
+menuitem {
+  border-radius: 8px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+menuitem:hover {
+  background: @mediumblue;
+  color: @text;
+  border-radius: 8px;
+}
+
+#cpu,
+#idle_inhibitor,
+#custom-power,
+#custom-nvidia,
+#power-profiles-daemon,
+#custom-notification,
+#custom-archicon,
+#taskbar,
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#bluetooth,
+#temperature,
+#workspaces,
+#tray,
+#memory,
+#backlight {
+  background: @base; 
+  opacity: 0.9;
+  padding: 0px 10px;
+  margin: 0px 0px;
+  margin-top: 10px;
+  border: 2px solid @lightblue;
+}
+
+#cpu {
+  color: @lightblue;
+  border-radius: 8px 0px 0px 8px;
+  border-right: 0px;
+}
+
+#memory {
+  color: @iris;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#temperature {
+  color: @gold;
+  border-left: 0px;
+  border-radius: 0px 8px 8px 0px;
+}
+
+#temperature.critical {
+  border-left: 0px;
+  border-right: 0px;
+  color: @redalert;
+}
+
+#backlight {
+  color: @iris;
+  border-radius: 8px 0px 0px 8px;
+  border-right: 0px;
+  margin-left: 10px;
+}
+
+#idle_inhibitor {
+  color: @text;
+  font-size: 26px;
+  border-left: 0px;
+  border-right: 0px;
+  padding: 0px 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#power-profiles-daemon {
+  background: @base;
+  padding: 0px 10px;
+  margin-top: 10px;
+  border: 2px solid @lightblue;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#custom-power {
+  color: @text;
+  font-size: 22px;
+  border-left: 0px;
+  border-radius: 0px 8px 8px 0px;
+  padding-right: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 15px;
+}
+
+#custom-notification {
+  font-family: "NotoSansMono Nerd Font";
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#custom-nvidia {
+  color: @text;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+#tray {
+  border-radius: 8px 0px 0px 8px;
+  border-right: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#workspaces {
+  background: @base;
+  border-radius: 8px;
+  margin-left: 10px;
+  padding-right: 0px;
+  padding-left: 5px;
+}
+
+#window {
+  border-radius: 8px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+window#waybar.empty {
+  background-color: transparent;
+}
+
+window#waybar.empty #window {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  /*  background-color: rgba(66,66,66,0.5); */
+  /* transparent */
+  background-color: transparent;
+}
+
+#clock {
+  color: @text;
+  background: @base;
+  border-radius: 8px;
+  margin-left: 10px;
+}
+
+#network {
+  color: @love;
+  border-radius: 8px 0px 0px 8px;
+  border-right: 0px;
+}
+
+#pulseaudio {
+  color: @lightblue;
+  border-right: 0px;
+  border-left: 0px;
+  margin-right: 0px;
+  padding-right: 5px;
+}
+
+#battery {
+  color: @gold;
+  border-radius: 0 8px 8px 0;
+  padding-left: 5px;
+  margin-right: 10px;
+  border-left: 0px;
+  margin-left: 0px;
+}
+
+#taskbar {
+  margin-left: 10px;
+  border-radius: 8px;
+}
+
+#taskbar.empty {
+  background: transparent;
+  border: 0px;
+}
+
+#custom-archicon {
+  color: @text;
+  background-color: @lightblue;
+  border-width: 2px;
+  border-color: @mediumblue;
+  border-radius: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 15px;
+  margin-right: 5px;
+}

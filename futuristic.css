@@ -1,0 +1,25 @@
+/*
+* Futuristic Colorscheme
+*/
+
+@define-color base            #191724;
+@define-color lightblue       #5994ce;
+@define-color mediumblue      #5c58b6;
+@define-color darkblue        #3a4e93;
+
+@define-color iris            #c76ce0;
+@define-color gold            #ebce5f;
+@define-color redalert        #c73530;
+
+@define-color highlight       #b957ce;
+@define-color highlightLow    #21202e;
+@define-color highlightMed    #403d52;
+@define-color highlightHigh   #524f67;
+
+@define-color text            #e0def4;
+
+@define-color surface         #1f1d2e;
+@define-color overlay         #26233a;
+
+@define-color muted           #6e6a86;
+@define-color subtle          #908caa;

@@ -1,0 +1,178 @@
+/// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 40, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 0, // Gaps between modules
+    "reload_style_on_change": true, // Reload css on style changes
+    // Choose the order of the modules
+    "modules-left": [
+        "custom/archicon",
+		"clock",
+        "hyprland/workspaces",
+        "wlr/taskbar"
+    ],
+    "modules-center": [
+        ""
+    ],
+    "modules-right": [
+        "custom/nvidia",
+        "cpu",
+        "memory",
+        "temperature",
+        "backlight",
+        "pulseaudio",
+        "battery",
+        "tray",
+        "idle_inhibitor",
+        "power-profiles-daemon",
+        "custom/notification",
+        "custom/power"
+    ],
+     // Modules configuration
+     "power-profiles-daemon": {
+         "format": "{icon}",
+         "tooltip-format": "Power profile: {profile}",
+         "tooltip": true,
+         "format-icons": {
+             "default": "<big></big>",
+             "performance": "<big></big>",
+             "balanced": "<big></big>",
+             "power-saver": "<big></big>"
+         }
+     },
+     "custom/archicon": {
+         "tooltip": false,
+         "format": "<big><span font='22'></span></big>",
+         "on-click": "rofi -show drun -run-command 'uwsm app -- {cmd}'"
+     },
+     "custom/nvidia": {
+         "format": "{}",
+         "exec": "${HOME}/.config/waybar/scripts/nvidia-powerdraw.sh",
+         "interval": 5,
+         "tooltip": true
+     },
+     "hyprland/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "warp-on-scroll": false,
+         "format": "{icon}",
+         "format-icons": {
+             "focused": "",
+             "default": ""
+         }
+     },
+    "idle_inhibitor": {
+        "format": "<big>{icon}</big>",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%a %I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%m-%d-%Y}"
+    },
+    "cpu": {
+        "format": "{usage}% <big></big>"
+    },
+    "memory": {
+        "format": "{}% <big></big>"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format-critical": "!!!{temperatureC}°C {icon}!!!",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""],
+        "tooltip": false
+    },
+    "backlight": {
+        "format": "{percent}% <big>{icon}</big>",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip": false
+    },
+    "wlr/taskbar": {
+		"format": "{icon}",
+		"icon-size": 25,
+        "icon-theme": "Ars-Dark-Icons",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+       // "ignore-list": [
+       //    "Alacritty"
+       // ],
+        "app_ids-mapping": {
+            "firefoxdeveloperedition": "firefox-developer-edition"
+        },
+        "rewrite": {
+            "Firefox Web Browser": "Firefox",
+            "Mozilla Firefox": "Firefox",
+            "Foot Server": "Terminal"
+        }
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "full-at": 99,
+        "format": "{capacity}% <big>{icon}</big>",
+        "format-full": "{capacity}% {icon}",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["󰂎", "󰁻", "󰁾", "󰂀", "󰁹"]
+    },
+    "pulseaudio": {
+        "format": "{volume}% <big>{icon}</big> {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "{icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% <big>󰍬</big>",
+        "format-source-muted": "󰍭",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/power": {
+        "format" : "<big>⏻</big>",
+		"tooltip": false,
+		"menu": "on-click",
+		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+		"menu-actions": {
+			"shutdown": "shutdown now",
+			"reboot": "reboot",
+			"suspend": "systemctl suspend"
+		}
+    },
+    "custom/notification": {
+		"tooltip": true,
+		"tooltip-format": "Right Click for DND",
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<big></big><span foreground='red'><sup></sup></span>",
+            "none": "<big></big>",
+            "dnd-notification": "<big></big><span foreground='red'><sup>{0}</sup></span>",
+            "dnd-none": "<big></big>",
+            "inhibited-notification": "<big></big><span foreground='red'><sup></sup></span>",
+            "inhibited-none": "<big></big>",
+            "dnd-inhibited-notification": "<big></big><span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": "<big></big>"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "uwsm app -- swaync-client -swb",
+        "on-click": "uwsm app -- swaync-client -t -sw",
+        "on-click-right": "uwsm app -- swaync-client -d -sw",
+        "escape": true
+    }
+}
